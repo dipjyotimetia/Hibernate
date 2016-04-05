@@ -1,0 +1,32 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+    <!-- Database connection setting -->
+        
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">password</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hibernatedb</property>
+
+	<!-- SQL dialect -->
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+	
+	<!-- JDBC connection POOl -->
+        <property name="connection_pool_size">1</property>
+
+	<!-- Drop and recreate the database schema -->
+        <property name="hbm2ddl.auto">create</property>
+ 	
+ 	<!-- Echo all executed SQL  to stdout -->
+        <property name="show_sql">true</property>
+
+	<!-- Disable the second level cache -->
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+		
+       <mapping class="org.dip.hybernate.UserDetails"/>
+
+    </session-factory>
+</hibernate-configuration>
